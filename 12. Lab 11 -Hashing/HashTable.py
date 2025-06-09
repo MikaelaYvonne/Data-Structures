@@ -1,12 +1,14 @@
 # Author: Mikaela Yvonne
 # Date: 05/29/2025
-# Description :
+# Description : The code implements two hash table classes: HashTableChaining - for collision resolution using
+# linked list chaining; HashTable Probing for collision resolution using linear probing with rehashing.
+# Both classes methods for hashing, inserting and finding values.
 
 from LinkedList import LinkedList
 
 class HashTableChaining:
     """
-    Create a hash table using linear probing for collision resolution
+    Create a hash table using linked list chaining for collision resolution
     """
     def __init__(self, size = 17):
         """
@@ -157,23 +159,29 @@ class HashTableProbing:
         return result
 
 def main():
-    print("Testing HashTableChaining...")
+    print("Testing HashTableChaining")
     ht_chaining = HashTableChaining()
-    chaining_values = [10, 20, 30, 53, 73, 83, 90]
+    chaining_values = [10, 20, 30, 53, 76, 86, 7, 90]
     for value in chaining_values:
         ht_chaining.insert(value)
     print(ht_chaining)
+
     print("Find 53:", ht_chaining.find(53))
     print("Find 99:", ht_chaining.find(99))
+    print("Find 99:", ht_chaining.find(90))
+    print("Find 99:", ht_chaining.find(86))
 
-    print("\nTesting HashTableProbing...")
+    print("\nTesting HashTableProbing")
     ht_probing = HashTableProbing()
-    probing_values = [10, 20, 30, 53, 73, 83, 90]
+    probing_values = [10, 20, 30, 53, 76, 86, 7, 90]
     for value in probing_values:
         ht_probing.insert(value)
     print(ht_probing)
+
     print("Find 53:", ht_probing.find(53))
     print("Find 99:", ht_probing.find(99))
+    print("Find 99:", ht_chaining.find(90))
+    print("Find 99:", ht_chaining.find(86))
 
 
 if __name__ == "__main__":
